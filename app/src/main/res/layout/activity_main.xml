@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    tools:context="com.example.andre.tp3codemorse.MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="310dp"
+        android:layout_height="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/app_name"
+        app:srcCompat="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/editTextTexte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/imageView2"
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginTop="22dp"
+        android:background="@android:color/transparent"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="@string/editTextTexte"
+        android:inputType="textPersonName"
+        android:labelFor="@id/editTextTexte"
+        android:maxLines="1"
+        android:textColor="#ffa" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignBottom="@+id/editTextTexte"
+        android:layout_alignEnd="@+id/editTextTexte"
+        android:layout_alignStart="@+id/editTextTexte"
+        android:layout_below="@+id/editTextTexte"
+        android:background="#f9d7db"
+        android:id="@+id/view" />
+
+    <EditText
+        android:id="@+id/editTextCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/view"
+        android:layout_alignStart="@+id/view"
+        android:layout_below="@+id/view"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:hint="@string/editTextCode"
+        android:inputType="textPersonName"
+        android:labelFor="@id/editTextCode"
+        android:textColor="#ffa" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignBottom="@+id/editTextCode"
+        android:layout_alignEnd="@+id/editTextCode"
+        android:layout_alignStart="@+id/editTextCode"
+        android:layout_below="@+id/editTextCode"
+        android:background="#f9d7db" />
+
+    <Button
+        android:id="@+id/btnPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnTrait"
+        android:layout_alignBottom="@+id/btnTrait"
+        android:layout_alignStart="@+id/editTextCode"
+        android:layout_marginStart="33dp"
+        android:background="@drawable/button_layout"
+        android:onClick="insererPoint"
+        android:text="@string/btnPoint" />
+
+    <Button
+        android:id="@+id/btnTrait"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editTextCode"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/button_layout"
+        android:onClick="insererTrait"
+        android:text="@string/btnTrait" />
+
+    <Button
+        android:id="@+id/btnEspace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/btnPoint"
+        android:layout_below="@+id/btnPoint"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/button_layout"
+        android:onClick="insererEspace"
+        android:text="@string/btnEspace" />
+
+    <Button
+        android:id="@+id/btnBarre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnEspace"
+        android:layout_alignBottom="@+id/btnEspace"
+        android:layout_alignStart="@+id/btnTrait"
+        android:background="@drawable/button_layout"
+        android:onClick="insererBarre"
+        android:text="@string/btnBarre" />
+
+    <Button
+        android:id="@+id/btnEffacer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/btnEspace"
+        android:layout_below="@+id/btnEspace"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/button_layout"
+        android:onClick="effacerChamp"
+        android:text="@string/btnEffacer" />
+
+    <Button
+        android:id="@+id/btnJouer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnEffacer"
+        android:layout_alignBottom="@+id/btnEffacer"
+        android:layout_alignStart="@+id/btnBarre"
+        android:background="@drawable/button_layout"
+        android:text="@string/btnJouer" />
+
+    <TextView
+        android:id="@+id/txvFront"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txvBack"
+        android:layout_alignStart="@+id/editTextCode"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/txvFront" />
+
+    <TextView
+        android:id="@+id/txvBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/txvFront"
+        android:layout_marginBottom="14dp"
+        android:text="@string/txvBack" />
+
+
+</RelativeLayout>

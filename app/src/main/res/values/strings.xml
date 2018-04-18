@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Code Morse</string>
+    <string name="editTextTexte">Texte</string>
+    <string name="editTextCode">Code</string>
+    <string name="btnPoint">.</string>
+    <string name="btnTrait">-</string>
+    <string name="btnEspace">ESPACE</string>
+    <string name="btnBarre">/</string>
+    <string name="btnEffacer">EFFACER</string>
+    <string name="btnJouer">JOUER</string>
+    <string name="txvFront">Front-end par: </string>
+    <string name="txvBack">Back-end par: </string>
+</resources>
