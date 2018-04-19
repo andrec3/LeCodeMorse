@@ -70,9 +70,8 @@ public class MainCodeMorse implements TraducteurMorse {
 
     @Override
     public String getNomProgrammeurs() {
-        String nomProgrammeur1 = "Andre Cruz";
-        String nomProgrammeur2 = "Dangelo Paiva";
+        String backProgrammeur = "Andre Cruz";
 
-        return nomProgrammeur1;
+        return backProgrammeur;
     }
 }

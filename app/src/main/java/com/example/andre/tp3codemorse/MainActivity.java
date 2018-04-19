@@ -13,8 +13,8 @@ public class MainActivity extends AppCompatActivity {
 
     MainCodeMorse cm;
 
-    private EditText txtTexte;
-    private EditText txtCode;
+    private EditText txtAlpha;
+    private EditText txtMorse;
 
     private Button btnPoint;
     private Button btnTrait;
@@ -33,74 +33,97 @@ public class MainActivity extends AppCompatActivity {
 
         cm = new MainCodeMorse();
 
-        txtTexte = (EditText) findViewById(R.id.editTextTexte);
-        txtCode = (EditText) findViewById(R.id.editTextCode);
+        txtAlpha = findViewById(R.id.editTextTexte);
+        txtMorse = findViewById(R.id.editTextCode);
 
-        btnPoint = (Button) findViewById(R.id.btnPoint);
-        btnTrait = (Button) findViewById(R.id.btnTrait);
-        btnEspace = (Button) findViewById(R.id.btnEspace);
-        btnBarre = (Button) findViewById(R.id.btnBarre);
-        btnEffacer = (Button) findViewById(R.id.btnEffacer);
-        btnJouer = (Button) findViewById(R.id.btnJouer);
+        btnPoint = findViewById(R.id.btnPoint);
+        btnTrait = findViewById(R.id.btnTrait);
+        btnEspace = findViewById(R.id.btnEspace);
+        btnBarre = findViewById(R.id.btnBarre);
+        btnEffacer = findViewById(R.id.btnEffacer);
+        btnJouer = findViewById(R.id.btnJouer);
 
-        txvFront = (TextView) findViewById(R.id.txvFront);
-        txvBack = (TextView) findViewById(R.id.txvBack);
+        txvFront = findViewById(R.id.txvFront);
+        txvBack = findViewById(R.id.txvBack);
 
-        txvFront.setText("txvFront: " + cm.getNomProgrammeurs());
+        boolean clicked = false;
 
-        txtTexte.addTextChangedListener(watcher);
-        //txtCode.addTextChangedListener(watcher);
+        txvBack.setText("Back-end par: " + cm.getNomProgrammeurs());
 
+        //txtCode.setText(cm.toMorse(txtTexte.getText().toString()));
+        //txtTexte.setText(cm.toMorse(txtCode.getText().toString()));
+
+
+
+
+            txtAlpha.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    //txtMorse.setText(cm.toMorse(txtAlpha.getText().toString()));
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                    //txtAlpha.setText(cm.toMorse(txtMorse.getText().toString()));
+
+                    txtMorse.setText(cm.toMorse(txtAlpha.getText().toString()));
+
+                }
+            });
+
+
+
+            txtMorse.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+                    txtAlpha.setText(cm.toMorse(txtMorse.getText().toString()));
+
+                }
+            });
 
 
     }
-
-    TextWatcher watcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            if(txtTexte.hasFocus() == true){
-                txtCode.setText(cm.toMorse(txtTexte.getText().toString()));
-            }else if(txtTexte.hasFocus() == false){
-                txtTexte.setText(cm.toMorse(txtCode.getText().toString()));
-            }
-            //txtCode.setText(cm.toMorse(txtTexte.getText().toString()));
-            //txtTexte.setText(cm.toMorse(txtCode.getText().toString()));
-        }
-
-        @Override
-        public void afterTextChanged(Editable editable) {
-        }
-    };
 
 
     public void insererPoint(View view){
-        String p = txtCode.getText().toString();
-        txtCode.setText(p + ".");
+        String p = txtMorse.getText().toString();
+        txtMorse.setText(p + ".");
     }
 
     public void insererTrait(View view){
-        String t = txtCode.getText().toString();
-        txtCode.setText(t + "-");
+        String t = txtMorse.getText().toString();
+        txtMorse.setText(t + "-");
     }
 
     public void insererEspace(View view){
-        String e = txtCode.getText().toString();
-        txtCode.setText(e + " ");
+        String e = txtMorse.getText().toString();
+        txtMorse.setText(e + " ");
     }
 
     public void insererBarre(View view){
-        String b = txtCode.getText().toString();
-        txtCode.setText(b + "/");
+        String b = txtMorse.getText().toString();
+        txtMorse.setText(b + "/");
     }
 
     public void effacerChamp(View view){
-        txtTexte.setText("");
-        txtCode.setText("");
+        txtAlpha.setText("");
+        txtMorse.setText("");
     }
 
 
