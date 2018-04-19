@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView txvFront;
     private TextView txvBack;
 
+    boolean clicked;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         txvFront = findViewById(R.id.txvFront);
         txvBack = findViewById(R.id.txvBack);
 
-        boolean clicked = false;
+
 
         txvBack.setText("Back-end par: " + cm.getNomProgrammeurs());
 
@@ -70,12 +72,20 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void afterTextChanged(Editable editable) {
                     //txtAlpha.setText(cm.toMorse(txtMorse.getText().toString()));
-
+                    if (clicked)
                     txtMorse.setText(cm.toMorse(txtAlpha.getText().toString()));
 
                 }
             });
 
+            txtAlpha.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View view, boolean b) {
+                    if (b){
+                        clicked = true;
+                    }
+                }
+            });
 
 
             txtMorse.addTextChangedListener(new TextWatcher() {
@@ -91,11 +101,20 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void afterTextChanged(Editable editable) {
-
-                    txtAlpha.setText(cm.toMorse(txtMorse.getText().toString()));
+                    if (!clicked)
+                    txtAlpha.setText(cm.toAlpha(txtMorse.getText().toString()));
 
                 }
             });
+
+        txtMorse.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (b){
+                    clicked = false;
+                }
+            }
+        });
 
 
     }
